@@ -1,6 +1,6 @@
 # AMNI: AI-Driven Medical Emergency System
 
-AMNI is an integrated medical emergency support system designed to provide first responders with immediate access to critical health information. It combines a mobile application, a QR-enabled wristband, and a Bluetooth emergency button to deliver rapid, reliable, and secure emergency assistance. The system leverages AI models for medical text summarization as well as analysis and ensures secure data handling for sensitive health records.
+AMNI is an integrated medical emergency support platform designed to provide first responders with immediate access to critical patient information. It combines a secure mobile application, a QR-enabled wristband, and a Bluetooth emergency button to deliver rapid and reliable emergency assistance. The system leverages advanced AI models for medical understanding, medication conflict detection, allergy analysis, and health-state assessment, while ensuring secure handling of sensitive health records.
 
 ---
 
@@ -9,65 +9,89 @@ AMNI is an integrated medical emergency support system designed to provide first
 ### 1. Digital Medical Profile
 - Users can create and update comprehensive medical profiles.
 - Supports uploading medical reports, laboratory results, and radiology scans.
-- All data is securely stored with encryption.
+- Stores current medications, allergies, chronic diseases, and past medical history.
+- All data is securely encrypted.
 
-### 2. AI-Based Medical Summarization
-- Utilizes BioBERT and CNN-based models to generate concise, clinically relevant summaries.
-- Summaries are optimized for rapid review by EMTs and medical staff.
-- Extracts key medical conditions, allergies, medications, and recent diagnostic findings.
+### 2. AI-Based Medical Understanding and Summarization
+AMNI integrates several AI capabilities designed for emergency-critical insight:
 
-### 3. QR-Enabled Emergency Wristband
-- Wristband contains a unique QR code linked to the user's AI-generated medical summary.
-- EMTs can scan the QR code to instantly access emergency-critical information.
-- Accessible even if the user is unconscious or unable to speak.
+- **Medical history analysis** using BioBERT-based NLP.
+- **Medication conflict detection** using interaction rules and model-based risk analysis.
+- **Allergy detection and annotation** to highlight potentially dangerous exposures.
+- **Health state assessment** based on historical data, medications, and recent reports.
+- **Summarization of chronic diseases and conditions** using a domain-adapted text summarizer.
+- **Extraction of key information** such as diagnoses, recent lab results,blood type and treatment plans.
 
-### 4. Bluetooth Emergency Button
-- A dedicated button connected to the mobile device via Bluetooth.
-- Sends automatic alerts via WhatsApp or SMS to predefined emergency contacts.
-- Includes real-time GPS location sharing for fast response.
+These summaries are optimized for rapid review by EMTs during emergencies.
 
-### 5. Emergency Notification System
-- Supports SMS and WhatsApp message automation.
-- Sends customizable alerts with user identity, medical summary link, and live location.
+### 3. Voice-to-Text Transcription Model
+- Integrated speech-to-text model enabling users to add or update medical information through voice input.
+- Converts spoken medical details into structured text ready for AI analysis.
+- Improves accessibility for users who cannot type or are in urgent situations.
 
-### 6. Speech-to-Text Input
-- Users can add or update medical information through voice input.
-- Seamlessly integrated into the medical profile creation workflow.
+### 4. QR-Enabled Emergency Wristband
+- Wristband contains a unique QR code linked to the user’s medical summary.
+- EMTs can scan the QR code to instantly access essential health information.
+- Works even if the patient is unconscious or unable to communicate.
+
+### 5. Bluetooth Emergency Button
+- A dedicated emergency button connects to the app via Bluetooth.
+- When activated, it sends alerts to predefined emergency contacts.
+- Automatically includes real-time GPS location.
+
+### 6. Emergency Notification System
+- Automated alerts via WhatsApp or SMS.
+- Alert message includes:
+  - User identity
+  - Link to medical summary
+  - GPS location
+- Allows fast coordination during emergencies.
 
 ### 7. Privacy and Security
-- Implements data encryption for all stored and transmitted information.
-- Utilizes secure communication protocols.
-- Ensures compliance with general data protection guidelines.
+- Full data encryption for stored and transmitted information.
+- Secure communication protocols.
+- Role-based access control for emergency personnel.
+- Follows general medical data protection standards.
 
 ---
 
 ## System Architecture
 
-AMNI is built around a modular, scalable architecture consisting of:
+AMNI is built with a modular architecture composed of:
 
 ### 1. Mobile Application Layer
-- User interface for profile management, uploading medical documents, and AI interactions.
-- Handles QR code scanning and Bluetooth device pairing.
-- Supports offline access to essential user data.
+- Interface for profile management, file uploads, and AI-powered insights.
+- Supports QR scanning and BLE-based device connectivity.
+- Offers offline access to cached medical summaries.
 
 ### 2. AI Processing Layer
-- BioBERT-based natural language processing for medical text understanding.
-- CNN models for feature extraction from uploaded scans.
-- Generates structured medical summaries for emergency use.
+- **BioBERT NLP models** for:
+  - Medical text understanding  
+  - Extraction of conditions, medications, allergies  
+  - Summarizing clinical documents  
+- **Medication conflict detection engine**:
+  - Analyzes current medication list against known interactions  
+  - Flags conflicts and risk categories  
+- **Allergy and sensitivity matcher**:
+  - Cross-references medications and conditions against the allergy list  
+- **Health-state analysis module**:
+  - Evaluates patient stability and chronic disease burden  
+- **CNN models** (optional) for analyzing uploaded scan types  
+- **Speech-to-text model** for converting voice input to structured data  
 
 ### 3. Emergency Communication Layer
-- WhatsApp API or Twilio/SMS gateway integration.
-- GPS data integration for location sharing.
-- Notification scheduling and delivery logic.
+- WhatsApp Cloud API and SMS gateway integration.
+- GPS synchronization and location-sharing module.
+- Event-triggered notification logic.
 
 ### 4. Database and Storage Layer
-- Encrypted cloud-based storage for medical records.
-- Secure user authentication and role-based access control.
-- Stores QR code mappings, emergency contacts, and summaries.
+- Encrypted cloud storage for all medical data.
+- Authentication and user management.
+- QR code mapping and emergency contact database.
 
 ### 5. Hardware Integration Layer
-- Bluetooth Low Energy (BLE) communication with the emergency button.
-- QR wristband generated via unique device identifier bound to user profile.
+- BLE communication with the emergency button.
+- QR wristband generation and validation.
 
 ---
 
@@ -87,6 +111,10 @@ AMNI/
 │   ├── summarizer/
 │   │   ├── biobert_model/
 │   │   └── preprocessing/
+│   ├── medication_conflicts/
+│   ├── allergy_detection/
+│   ├── health_state_assessment/
+│   ├── speech_to_text/
 │   ├── cnn_classifier/
 │   └── utils/
 │
@@ -112,31 +140,34 @@ AMNI/
 
 ### Mobile Application
 - Flutter or React Native  
-- BLE APIs for Bluetooth integration  
-- QR generation and scanning libraries  
+- BLE integration  
+- QR generator and scanner libraries  
 
 ### Backend
-- Node.js, Django, or FastAPI  
-- RESTful API architecture  
-- Encrypted cloud storage (AWS, Firebase, or Azure)
+- Node.js, FastAPI, or Django  
+- RESTful API  
+- Cloud-based encrypted storage solutions (AWS, Firebase, Azure)
 
 ### AI Components
-- BioBERT for medical natural language processing  
-- CNN architectures for scan analysis  
+- BioBERT for medical NLP  
+- CNN models for scan analysis  
+- Custom medication interaction and health-risk detection models  
+- Speech-to-text transcription (Whisper or alternative models)  
 - Python, PyTorch, TensorFlow
 
 ### Security
-- AES or RSA-based encryption  
-- Token-based authentication (JWT)  
-- Secure HTTPS communication
+- AES or RSA encryption  
+- JWT authentication  
+- HTTPS data transmission  
 
 ### Communication Services
 - WhatsApp Cloud API  
 - Twilio SMS API  
-- GPS location services
+- GPS location sharing  
 
 ---
 
 ## Purpose
 
-AMNI is designed to reduce the time required for emergency responders to access vital medical information. By combining artificial intelligence with secure and user-friendly hardware, the system provides a reliable framework for timely medical intervention, especially in life-threatening situations.
+AMNI is designed to reduce the time required for emergency responders to access critical medical information. By combining AI-driven medical analysis with hardware-assisted emergency alerts, the system provides a reliable framework for rapid medical intervention and improved emergency outcomes.
+
