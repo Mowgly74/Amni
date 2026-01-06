@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # AMNI: AI-Driven Medical Emergency System
 
 AMNI is an integrated medical emergency support platform designed to provide first responders with immediate access to critical patient information. It combines a secure mobile application, a QR-enabled wristband, and a Bluetooth emergency button to deliver rapid and reliable emergency assistance. The system leverages advanced AI models for medical understanding, medication conflict detection, allergy analysis, and health-state assessment, while ensuring secure handling of sensitive health records.
@@ -171,3 +172,21 @@ AMNI/
 
 AMNI is designed to reduce the time required for emergency responders to access critical medical information. By combining AI-driven medical analysis with hardware-assisted emergency alerts, the system provides a reliable framework for rapid medical intervention and improved emergency outcomes.
 
+=======
+# React + Vite
+
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+
+Currently, two official plugins are available:
+
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+
+## React Compiler
+
+The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+
+## Expanding the ESLint configuration
+
+If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+>>>>>>> 2d1be31 (Create Front END Web Application)
