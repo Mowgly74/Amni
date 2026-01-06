@@ -1,8 +1,8 @@
-import {React , useEffect, useState} from 'react';
+import React ,{ useEffect , useState} from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Heart, Shield, Activity, User } from 'lucide-react';
+import {  Shield , Activity, User, Import } from 'lucide-react';
 import Subscription from '../Subscription/Subscription';
-
+import video from '../../../public/Bg_vid.mp4';
 
 
 export default function Home() {
@@ -34,7 +34,7 @@ export default function Home() {
               muted
               playsInline
             >
-              <source src="public\Bg_vid.mp4" type="video/mp4" />
+              <source src={video} type="video/mp4" />
             </video>
             {/* Dark overlay for better text readability */}
             <div className="absolute inset-0 bg-gradient-to-b from-black/15 to-black/30" />
@@ -61,7 +61,7 @@ export default function Home() {
               you cannot communicate.
             </p>
 
-            <div className="flex justify-center flex-row gap-4">
+            <div className="flex justify-center md:justify-normal flex-row gap-4">
               <button
                 onClick={() => navigate('/register')}
                 className="bg-white text-red-600 hover:bg-gray-50 px-8 py-3 rounded-lg text-lg font-semibold transition-all duration-200 hover:scale-105 shadow-lg hover:shadow-xl"
