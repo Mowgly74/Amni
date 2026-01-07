@@ -12,6 +12,12 @@
   display: none;               
 }
 
+.font-type {
+  font-family: 'Orbitron', sans-serif;
+}
+.font-type2 {
+  font-family: 'Poppins', sans-serif;
+}
 
 @keyframes fade {
   0% {

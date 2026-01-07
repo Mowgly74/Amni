@@ -20,7 +20,7 @@ export default function Home() {
 
 
   return (
-    <div className="w-full hero">
+    <div className="w-full hero font-type2">
       {/* Hero Section with Video Background */}
       <section className="relative min-h-screen flex items-center">
         {/* Video Container */}
@@ -44,7 +44,7 @@ export default function Home() {
         {/* Hero Content - Aligned to Left */}
         <div className="relative z-10 w-full  mx-auto px-2 lg:px-8">
           <div className="max-w-2xl text-white">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
+            <h1 className="font-type text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
               Your Life. <span
       key={words[index]}
       className="inline-block text-red-600 animate-fade"
@@ -55,7 +55,7 @@ export default function Home() {
             <h2 className="text-xl md:text-2xl lg:text-3xl font-semibold mb-4">
               Smart medical emergency system powered by AI
             </h2>
-            <p className="text-base md:text-lg lg:text-xl leading-relaxed mb-8 text-gray-100">
+            <p className="text-justify text-base md:text-lg lg:text-xl leading-relaxed mb-8 text-gray-100">
               Amni helps you maintain a smart emergency medical profile that can be accessed 
               instantly using a QR code, ensuring fast and accurate emergency care even when 
               you cannot communicate.
