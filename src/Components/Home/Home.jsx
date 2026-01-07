@@ -2,7 +2,9 @@ import React ,{ useEffect , useState} from 'react';
 import { useNavigate } from 'react-router-dom';
 import {  Shield , Activity, User, Import } from 'lucide-react';
 import Subscription from '../Subscription/Subscription';
-import video from '../../../public/Bg_vid.mp4';
+import video from '../../../public/BG-VID12.mp4';
+import video2 from '../../../public/Bg_vid.mp4';
+
 
 
 export default function Home() {
@@ -28,13 +30,21 @@ export default function Home() {
           <div className="w-full h-full relative">
             {/* Video element - replace src with your video */}
             <video
-              className="w-full h-full object-cover"
+              className="hidden md:block w-full h-full object-cover"
+              autoPlay
+              loop
+              playsInline
+            >
+              <source src={video} type="video/mp4" />
+            </video>
+            <video
+              className="md:hidden w-full h-full object-cover"
               autoPlay
               loop
               muted
               playsInline
             >
-              <source src={video} type="video/mp4" />
+              <source src={video2} type="video/mp4" />
             </video>
             {/* Dark overlay for better text readability */}
             <div className="absolute inset-0 bg-gradient-to-b from-black/15 to-black/30" />
