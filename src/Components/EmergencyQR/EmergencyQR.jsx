@@ -13,7 +13,7 @@ const mockPatientData = {
   bloodPressure: { systolic: 130, diastolic: 85 },
   bloodSugar: 110,
   chronicDiseases: ['Diabetes Type 2', 'Hypertension'],
-  emergencyContact: '+20 123 456 7890',
+  emergencyContact: '+20 121 073 5537',
   bpHistory: [
     { date: '01/01', systolic: 128, diastolic: 82 },
     { date: '01/02', systolic: 132, diastolic: 86 },
